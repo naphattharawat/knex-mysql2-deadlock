@@ -1,23 +1,23 @@
 {
-  "name": "knex-mysql-deadlock",
+  "name": "knex-mysql2-deadlock",
   "version": "1.0.0",
-  "description": "A custom knex mysql dialect, which does deadlock retries",
+  "description": "An enhanced version of knex-mysql-deadlock for mysql2",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mindflash/knex-mysql-deadlock.git"
+    "url": "git+https://github.com/fiferdc/knex-mysql2-deadlock.git"
   },
-  "author": "mindflash",
+  "author": "David Fifer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mindflash/knex-mysql-deadlock/issues"
+    "url": "https://github.com/fiferdc/knex-mysql2-deadlock/issues"
   },
-  "homepage": "https://github.com/Mindflash/knex-mysql-deadlock#readme",
+  "homepage": "https://github.com/fiferdc/knex-mysql2-deadlock#readme",
   "peerDependencies": {
     "knex": "^0.12.6",
-    "mysql": "^2.13.0"
+    "mysql2": "^1.5.3"
   }
 }

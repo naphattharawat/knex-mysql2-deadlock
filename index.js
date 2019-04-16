@@ -1,31 +1,38 @@
 /* eslint-disable camelcase, no-underscore-dangle */
 'use strict';
 
-const util = require('util');
-
 // Custom mysql dialect, with deadlock retries
-const Client_MySQL = require('knex/lib/dialects/mysql');
+const Client_MySQL = require('knex/lib/dialects/mysql2');
 
 class Client_MySQL_deadlock extends Client_MySQL {
-  constructor(config) {
+  constructor (config) {
     super(config);
 
-    const { deadlockRetries } = config.options || {};
+    const {
+      deadlockRetries,
+      deadlockRetryDelay,
+      logger
+    } = config.options || {};
 
     this.deadlockRetries = deadlockRetries || 5;
+    this.deadlockRetryDelay = deadlockRetryDelay;
+    this.logger = logger || console;
   }
 
-  _query(connection, obj) {
+  _query (connection, obj) {
     let retryAmount = this.deadlockRetries;
+    const logger = this.logger;
 
     const runQuery = () => Reflect.apply(super._query, this, arguments)
-      .catch(error => {
-        if (error.code === 'ER_LOCK_WAIT_TIMEOUT' && --retryAmount > 0) {
-          console.log(`${error.code} returned, retrying, (${retryAmount}) tries remaning: ${util.inspect(arguments, {depth:2})}`);
-
+      .catch(async error => {
+        if (['ER_LOCK_WAIT_TIMEOUT', 'ER_LOCK_DEADLOCK'].includes(error.code) && retryAmount-- > 0) {
+          logger.info(`${error.code} returned, retrying, (${retryAmount}) more attempts before error`);
+          const retryDelay = this.deadlockRetryDelay;
+          if (retryDelay) {
+            await new Promise(resolve => setTimeout(resolve, retryDelay));
+          }
           return runQuery();
         }
-
         throw error;
       });
 
