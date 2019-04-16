@@ -1,6 +1,6 @@
 {
   "name": "knex-mysql2-deadlock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An enhanced version of knex-mysql-deadlock for mysql2",
   "main": "index.js",
   "scripts": {
