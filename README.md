@@ -1,5 +1,5 @@
 # knex-mysql2-deadlock
-An enhanced version of `knex-mysql-deadlock` for mysql2.  In addition to supporting mysql2 clients, this module addresses [an issue](https://github.com/Mindflash/knex-mysql-deadlock/issues/5) with the original implementation regarding support for ER_LOCK_DEADLOCK and provides additional flexibility around retries.
+An enhanced version of [`knex-mysql-deadlock`](https://github.com/Mindflash/knex-mysql-deadlock/) for mysql2.  In addition to supporting mysql2 clients, this module addresses [an issue](https://github.com/Mindflash/knex-mysql-deadlock/issues/5) with the original implementation regarding support for ER_LOCK_DEADLOCK and provides additional flexibility around retries.
 
 ## Install
 
