@@ -2,7 +2,8 @@
 'use strict';
 
 // Custom mysql dialect, with deadlock retries
-const Client_MySQL = require('knex/lib/dialects/mysql2');
+// const Client_MySQL = require('knex/lib/dialects/mysql2');
+const Client_MySQL = require('knex/lib/dialects/mysql');
 
 class Client_MySQL_deadlock extends Client_MySQL {
   constructor (config) {

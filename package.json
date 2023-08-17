@@ -1,21 +1,22 @@
 {
-  "name": "knex-mysql2-deadlock",
-  "version": "1.0.1",
+  "name": "@tanjaae/knex-mysql2-deadlock",
+  "version": "2.0.1",
   "description": "An enhanced version of knex-mysql-deadlock for mysql2",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "publish": "npm publish --access public ./"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fiferdc/knex-mysql2-deadlock.git"
+    "url": "git+https://github.com/naphattharawat/knex-mysql2-deadlock.git"
   },
   "author": "David Fifer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fiferdc/knex-mysql2-deadlock/issues"
+    "url": "https://github.com/naphattharawat/knex-mysql2-deadlock/issues"
   },
-  "homepage": "https://github.com/fiferdc/knex-mysql2-deadlock#readme",
+  "homepage": "https://github.com/naphattharawat/knex-mysql2-deadlock#readme",
   "devDependencies": {
     "ava": "^0.25.0",
     "knex": "^0.19.5",
@@ -24,7 +25,10 @@
     "sinon": "6.0.0"
   },
   "peerDependencies": {
-    "knex": "^0.12.6",
-    "mysql2": "^1.5.3"
+    "knex": "^0.16.3",
+    "mysql2": "^2.3.3"
+  },
+  "dependencies": {
+    "mysql": "^2.16.0"
   }
 }
